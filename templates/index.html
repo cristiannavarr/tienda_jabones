@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.A Clean Homes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        /* ===== Sección Sobre Nosotros corregida ===== */
+        .nosotros-grid-fix {
+            display: flex !important;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nosotros-texto {
+            flex: 1 1 300px;
+            min-width: 300px;
+        }
+
+        .nosotros-imagen-fix {
+            flex: 1 1 300px;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .nosotros-imagen-fix img {
+            max-width: 100%;
+            height: auto;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="overlay"></div>
+        <div class="hero-contenido">
+            <h1>J.A Clean Homes</h1>
+            <p>Limpieza práctica y confiable para tu hogar y negocio</p>
+        </div>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section class="productos-seccion">
+        <div class="contenedor">
+            <div class="titulo-seccion">
+                <h2>Todos los productos</h2>
+            </div>
+            <div class="grid-productos">
+                {% for producto in productos %}
+                <div class="card-producto">
+                    <div class="imagen-card">
+                        <img src="{{ url_for('static', filename='img/' ~ producto.imagen) }}" alt="{{ producto.nombre }}">
+                    </div>
+                    <div class="contenido-card">
+                        <h3>{{ producto.nombre }}</h3>
+                        <p>{{ producto.descripcion }}</p>
+                        <span class="precio">${{ '{:,}'.format(producto.precio) }}</span>
+                        <button class="btn-carrito">Agregar al carrito</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section id="nosotros" class="nosotros seccion">
+        <div class="contenedor nosotros-grid-fix">
+            <div class="nosotros-texto">
+                <h2>Sobre nosotros</h2>
+                <p>En <strong>J.A Clean Homes</strong> trabajamos para que la limpieza de tu hogar y tu negocio sea más fácil, práctica y confiable.</p>
+                <p>Ofrecemos productos de aseo con excelente rendimiento, buenas presentaciones y atención cercana.</p>
+                <p>Manejamos ventas al detal, pedidos por domicilio y también atención al por mayor directamente con Jairo.</p>
+            </div>
+            <div class="nosotros-imagen-fix">
+                <img src="{{ url_for('static', filename='img/todosproductos.jpg') }}" alt="Todos los productos">
+            </div>
+        </div>
+    </section>
+<section id="nosotros" class="nosotros seccion">
+    <div class="contenedor nosotros-grid">
+        <div class="nosotros-texto">
+            <h2>Sobre nosotros</h2>
+            <p>En <strong>J.A Clean Homes</strong> trabajamos para que la limpieza de tu hogar y tu negocio sea más fácil, práctica y confiable.</p>
+            <p>Ofrecemos productos de aseo con excelente rendimiento, buenas presentaciones y atención cercana.</p>
+            <p>Manejamos ventas al detal, pedidos por domicilio y también atención al por mayor directamente con Jairo.</p>
+        </div>
+        <div class="nosotros-imagen">
+            <img src="{{ url_for('static', filename='img/todos_productos.jpg') }}" 
+                 alt="Todos los productos">
+        </div>
+    </div>
+    <section id="nosotros" class="nosotros seccion">
+    <div class="contenedor nosotros-grid-fix">
+        <div class="nosotros-texto">
+            <h2>Sobre nosotros</h2>
+            <p>En <strong>J.A Clean Homes</strong> trabajamos para que la limpieza de tu hogar y tu negocio sea más fácil, práctica y confiable.</p>
+            <p>Ofrecemos productos de aseo con excelente rendimiento, buenas presentaciones y atención cercana.</p>
+            <p>Manejamos ventas al detal, pedidos por domicilio y también atención al por mayor directamente con Jairo.</p>
+        </div>
+        <div class="nosotros-imagen-fix">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo J.A Clean Homes" 
+                 style="max-width:300px; width:100%; height:auto; display:inline-block;">
+        </div>
+    </div>
+</section>
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="faq">
+        <div class="contenedor">
+            <h2>Preguntas frecuentes</h2>
+            <div class="faq-grid">
+                <div class="faq-card">
+                    <h3>¿Hacen domicilios?</h3>
+                    <p>Sí, realizamos domicilios en Bogotá. El valor puede variar según la zona.</p>
+                </div>
+                <div class="faq-card">
+                    <h3>¿Venden al por mayor?</h3>
+                    <p>Sí, las ventas al por mayor se coordinan directamente con Jairo.</p>
+                </div>
+                <div class="faq-card">
+                    <h3>¿Envían fuera de Bogotá?</h3>
+                    <p>Sí, se puede coordinar envío nacional por transportadora.</p>
+                </div>
+                <div class="faq-card">
+                    <h3>¿Cómo hago mi pedido?</h3>
+                    <p>Agrega productos al carrito, llena tus datos y envía la orden por WhatsApp.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
